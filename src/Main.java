@@ -1,12 +1,11 @@
 class Solution {
-    public int solution(int slice, int n) {
-        int answer = 0;
-        for (int i = 1; i < 100; i++) {
-            if ((slice * i) / n >= 1){
-                return i;
-            }
+    public double solution(int[] numbers) {
+        double answer = 0;
+        double sum = 0;
+        for (int number : numbers) {
+            sum += number;
         }
-        return answer;
+            return sum / (double) numbers.length;
     }
 }
 
@@ -14,7 +13,6 @@ class Solution {
 public class Main {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.solution(2,1));
     }
 }
 
