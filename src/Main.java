@@ -1,16 +1,10 @@
 class Solution {
-    public int solution(int n) {
+    public int solution(int slice, int n) {
         int answer = 0;
-        int pizza = 6;
-        if (n > 3) {
-            for (int i = 1; i < 100; i++) {
-                if ((n * i) % pizza == 0) {
-                    answer = (n * i) / pizza;
-                    break;
-                }
+        for (int i = 1; i < 100; i++) {
+            if ((slice * i) / n >= 1){
+                return i;
             }
-        } else {
-            answer = 1;
         }
         return answer;
     }
@@ -20,7 +14,7 @@ class Solution {
 public class Main {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.solution(5));
+        System.out.println(solution.solution(2,1));
     }
 }
 
