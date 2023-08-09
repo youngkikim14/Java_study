@@ -1,12 +1,19 @@
 class Solution {
-    public String solution(String my_string, String letter) {
-        String answer = "";
-        for (char a : letter.toCharArray()) {
-            answer = my_string.replace(String.valueOf(a), "");
+    public int solution(int angle) {
+        int answer = 0;
+        if (angle > 0 && angle < 90){
+            answer = 1;
+        } else if (angle == 90){
+            answer = 2;
+        } else if (angle > 90 && angle < 180){
+            answer = 3;
+        } else if (angle == 180){
+            answer = 4;
         }
         return answer;
     }
 }
+
 public class Main {
     public static void main(String[] args) {
 
