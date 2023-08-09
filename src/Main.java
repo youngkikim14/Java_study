@@ -1,16 +1,13 @@
 class Solution {
-    public int[] solution(int[] num_list) {
-        int[] answer = {};
-        int even = 0;
-        int odd = 0;
-        for (int a : num_list) {
-            if (a % 2 == 0) {
-                even++;
-            } else {
-                odd++;
-            }
+    public String solution(String my_string, int n) {
+        String answer = "";
+        String[] strings = new String[my_string.length()];
+        for (int i = 0; i < my_string.length(); i++) {
+            strings[i] = Character.toString(my_string.charAt(i));
         }
-        answer = new int[]{even, odd};
+        for (String string : strings) {
+            answer += string.repeat(n);
+            }
         return answer;
     }
 }
