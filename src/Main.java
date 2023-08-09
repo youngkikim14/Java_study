@@ -1,13 +1,9 @@
 class Solution {
-    public String solution(String my_string, int n) {
+    public String solution(String my_string, String letter) {
         String answer = "";
-        String[] strings = new String[my_string.length()];
-        for (int i = 0; i < my_string.length(); i++) {
-            strings[i] = Character.toString(my_string.charAt(i));
+        for (char a : letter.toCharArray()) {
+            answer = my_string.replace(String.valueOf(a), "");
         }
-        for (String string : strings) {
-            answer += string.repeat(n);
-            }
         return answer;
     }
 }
