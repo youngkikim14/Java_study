@@ -1,19 +1,10 @@
 class Solution {
-    public int solution(int angle) {
+    public int solution(int n, int k) {
         int answer = 0;
-        if (angle > 0 && angle < 90){
-            answer = 1;
-        } else if (angle == 90){
-            answer = 2;
-        } else if (angle > 90 && angle < 180){
-            answer = 3;
-        } else if (angle == 180){
-            answer = 4;
-        }
+        answer = (12000 * n) + (2000 * k) - ((n / 10) * 2000);
         return answer;
     }
 }
-
 public class Main {
     public static void main(String[] args) {
 
