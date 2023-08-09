@@ -1,23 +1,16 @@
-import java.util.Arrays;
-
-class Solution {
-    public String solution(String my_string) {
-        String answer = "";
-        String[] result = new String[my_string.length()];
-        for (int i = 0; i < my_string.length(); i++) {
-            result[i] = Character.toString(my_string.charAt(i));
-        }
-        for (int i = my_string.length()-1; i >= 0; i--) {
-            answer += result[i];
-        }
-        return answer;
-    }
-}
-
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String result = "";
+        for (int i = 1; i < n+1; i++) {
+            result += "*";
+            System.out.println(result);
+        }
+
+        System.out.println(n);
     }
 }
 
