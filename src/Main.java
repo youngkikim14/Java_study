@@ -1,14 +1,17 @@
-
 class Solution {
-    public int[] solution(int[] emergency) {
-        int[] answer = new int[emergency.length];
-        for (int i = 0; i < emergency.length; i++) {
-            answer[i] = 1;
-            for (int k : emergency) {
-                if (emergency[i] < k) {
-                    answer[i] += 1;
-                }
-            }
+    public int solution(int hp) {
+        int answer = 0;
+        int general = 0;
+        int soldier = 0;
+        int worker = 0;
+        while (hp != 0){
+            general = hp / 5;
+            hp -= general * 5;
+            soldier = hp / 3;
+            hp -= soldier * 3;
+            worker = hp;
+            hp -= worker;
+            answer = general + soldier + worker;
         }
         return answer;
     }
