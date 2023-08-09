@@ -1,16 +1,22 @@
-import java.util.Scanner;
-
+class Solution {
+    public int[] solution(int[] num_list) {
+        int[] answer = {};
+        int even = 0;
+        int odd = 0;
+        for (int a : num_list) {
+            if (a % 2 == 0) {
+                even++;
+            } else {
+                odd++;
+            }
+        }
+        answer = new int[]{even, odd};
+        return answer;
+    }
+}
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        String result = "";
-        for (int i = 1; i < n+1; i++) {
-            result += "*";
-            System.out.println(result);
-        }
 
-        System.out.println(n);
     }
 }
 
