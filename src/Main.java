@@ -1,12 +1,16 @@
+
 class Solution {
-    public int[] solution(int[] numbers, int num1, int num2) {
-        int[] answer = new int[num2 - num1 + 1];
-        for (int i = num1, j = 0; i <= num2 ; i++, j++) {
-            answer[j] = numbers[i];
+    public int solution(int[] array, int height) {
+        int answer = 0;
+        for (int a : array) {
+            if (height < a){
+                answer++;
+            }
         }
         return answer;
     }
 }
+
 public class Main {
     public static void main(String[] args) {
 
