@@ -1,17 +1,15 @@
 class Solution {
-    public String solution(String rsp) {
-        String answer = "";
-        char[] game = rsp.toCharArray();
-        for (char a : game) {
-            if (a == '0'){
-                answer += "5";
-            } else if (a == '2'){
-                answer += "0";
-            } else if (a == '5'){
-                answer += "2";
-            }
+    public int solution(int balls, int share) {
+        if (balls == share || share == 0) {
+            return 1;
         }
-        return answer;
+
+        long result = 1;
+        for (int i = 1; i <= share; i++) {
+            result = result * (balls - (share - i)) / i;
+        }
+
+        return (int)result;
     }
 }
 
