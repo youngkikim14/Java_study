@@ -1,6 +1,6 @@
 class Solution {
     public int solution(int balls, int share) {
-        if (balls == share || share == 0) {
+        if (balls == share) {
             return 1;
         }
 
