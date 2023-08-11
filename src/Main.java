@@ -1,13 +1,16 @@
 class Solution {
-    public int solution(int[] dot) {
-        if (dot[0] > 0 && dot[1] > 0){
-            return 1;
-        } else if (dot[0] < 0 && dot[1] > 0){
-            return 2;
-        } else if (dot[0] < 0 && dot[1] < 0){
-            return 3;
+    public int[][] solution(int[] num_list, int n) {
+        int[][] answer = new int[num_list.length/n][n];
+        int index=0;
+        for(int i=0; i< answer.length; i++) {
+            int[] tmp = new int[n];
+            for(int k=0; k<n; k++) {
+                tmp[k] = num_list[index];
+                index++;
+            }
+            answer[i] = tmp;
         }
-        return 4;
+        return answer;
     }
 }
 
