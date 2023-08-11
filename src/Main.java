@@ -1,15 +1,13 @@
 class Solution {
-    public int solution(int balls, int share) {
-        if (balls == share) {
+    public int solution(int[] dot) {
+        if (dot[0] > 0 && dot[1] > 0){
             return 1;
+        } else if (dot[0] < 0 && dot[1] > 0){
+            return 2;
+        } else if (dot[0] < 0 && dot[1] < 0){
+            return 3;
         }
-
-        long result = 1;
-        for (int i = 1; i <= share; i++) {
-            result = result * (balls - (share - i)) / i;
-        }
-
-        return (int)result;
+        return 4;
     }
 }
 
