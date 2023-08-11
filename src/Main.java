@@ -1,18 +1,19 @@
+
+
 class Solution {
-    public int solution(int[] numbers, int k) {
-        int answer = 0;
-        int a = 0;
-        int i = 0;
-        while (a < k){
-            if (i == numbers.length){
-                i = 0;
-            } else if (i == numbers.length+1){
-                i = 1;
+    public int[] solution(int[] numbers, String direction) {
+        int[] answer = new int[numbers.length];
+            if (direction.equals("right")){
+                for (int i = 1; i < numbers.length; i++) {
+                answer[0] = numbers[numbers.length-1];
+                answer[i] = numbers[i-1];
             }
-            answer = numbers[i];
-            i+=2;
-            a++;
-        }
+        } else if (direction.equals("left")){
+                for (int i = 0; i < numbers.length-1; i++) {
+                    answer[numbers.length-1] = numbers[0];
+                    answer[i] = numbers[i+1];
+                }
+            }
         return answer;
     }
 }
@@ -20,8 +21,6 @@ class Solution {
 public class Main {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int[] a = {1, 2, 3};
-        System.out.println(solution.solution(a, 3));
     }
 }
 
