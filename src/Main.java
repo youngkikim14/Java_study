@@ -2,14 +2,16 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 class Solution {
-    public int[] solution(String my_string) {
-        String number = my_string.replaceAll("[a-z]", "");
-        int result = Integer.parseInt(number);
-        int[] answer = Stream.of(String.valueOf(result).split(""))
+    public int solution(String my_string) {
+        String number = my_string.replaceAll("[a-z,A-Z]", "");
+//        int result = Integer.parseInt(number);
+//        int[] answer = Arrays.stream(Stream.of(number.split(""))
+//                .mapToInt(Integer::parseInt)
+//                .toArray()).sum();
+//        Arrays.sort(answer);
+        return Arrays.stream(Stream.of(number.split(""))
                 .mapToInt(Integer::parseInt)
-                .toArray();
-        Arrays.sort(answer);
-        return answer;
+                .toArray()).sum();
     }
 }
 
