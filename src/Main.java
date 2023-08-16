@@ -1,17 +1,21 @@
-import java.util.Arrays;
-import java.util.stream.Stream;
+import java.util.HashSet;
+import java.util.Set;
 
 class Solution {
-    public int solution(String my_string) {
-        String number = my_string.replaceAll("[a-z,A-Z]", "");
-//        int result = Integer.parseInt(number);
-//        int[] answer = Arrays.stream(Stream.of(number.split(""))
-//                .mapToInt(Integer::parseInt)
-//                .toArray()).sum();
-//        Arrays.sort(answer);
-        return Arrays.stream(Stream.of(number.split(""))
-                .mapToInt(Integer::parseInt)
-                .toArray()).sum();
+    public int[] solution(int n) {
+        int[] answer = {};
+        Set<Integer> result = new HashSet<>();
+        int a = 0;
+        for (int i = 2; i < n; i++) {
+            if (n % i ==0){
+                a = n / i;
+                while (a % 2 == 0){
+                    a /= 2;
+                    result.add(a);
+                }
+            }
+        }
+        return answer;
     }
 }
 
