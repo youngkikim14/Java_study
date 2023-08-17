@@ -1,16 +1,11 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Arrays;
 
 class Solution {
-    public static String solution(String str) {
-        String answer = "";
-
-        for (int i = 0; i < str.length(); i++) {
-            if(str.indexOf(str.charAt(i)) == i) answer += str.charAt(i);
-        }
-
-        return answer;
+    public int solution(int[] sides) {
+        Arrays.sort(sides);
+        if (sides[0]+sides[1] > sides[2]){
+            return 1;
+        } else return 2;
     }
 }
 
