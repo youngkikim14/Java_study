@@ -1,23 +1,13 @@
-import java.util.Arrays;
-
 class Solution {
-    public int solution(int[] array, int n) {
+    public int solution(int order) {
         int answer = 0;
-        Arrays.sort(array);
-        int[] result = new int[array.length];
-        for (int i = 0; i < array.length; i++) {
-            result[i] = Math.abs(n - array[i]);
-        }
-        int min = result[0];
-        int minIndex = 0;
-
-        for (int i = 0; i < result.length; i++) {
-            if (result[i] < min) {
-                min = result[i];
-                minIndex = i;
+        String result = Integer.toString(order);
+        for (int i = 0; i < result.length(); i++) {
+            if(result.charAt(i) == '3' || result.charAt(i) == '6' || result.charAt(i) == '9'){
+                answer++;
             }
         }
-        return array[minIndex];
+        return answer;
     }
 }
 
