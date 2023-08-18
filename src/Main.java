@@ -1,19 +1,18 @@
 class Solution {
-    public int solution(int order) {
-        int answer = 0;
-        String result = Integer.toString(order);
-        for (int i = 0; i < result.length(); i++) {
-            if(result.charAt(i) == '3' || result.charAt(i) == '6' || result.charAt(i) == '9'){
-                answer++;
-            }
+    public String solution(String cipher, int code) {
+        StringBuilder result = new StringBuilder();
+        if (code == 1) return cipher;
+        for (int i = code-1; i < cipher.length(); i+=code) {
+            result.append(cipher.charAt(i));
         }
-        return answer;
+        return result.toString();
     }
 }
 
     public class Main {
         public static void main(String[] args) {
             Solution solution = new Solution();
+            System.out.println(solution.solution("dfjardstddetckdaccccdegk", 4));
         }
 }
 
