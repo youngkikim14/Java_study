@@ -1,18 +1,22 @@
+
 class Solution {
-    public String solution(String cipher, int code) {
-        StringBuilder result = new StringBuilder();
-        if (code == 1) return cipher;
-        for (int i = code-1; i < cipher.length(); i+=code) {
-            result.append(cipher.charAt(i));
+    public String solution(String my_string) {
+        String answer = "";
+        for (int i = 0; i < my_string.length(); i++) {
+            if(Character.isLowerCase(my_string.charAt(i))){
+                answer += Character.toUpperCase(my_string.charAt(i));
+            } else {
+                answer += Character.toLowerCase(my_string.charAt(i));
+            }
         }
-        return result.toString();
+        return answer;
     }
 }
 
     public class Main {
         public static void main(String[] args) {
             Solution solution = new Solution();
-            System.out.println(solution.solution("dfjardstddetckdaccccdegk", 4));
+            System.out.println(solution.solution("cccCCC"));
         }
 }
 
