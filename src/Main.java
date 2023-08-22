@@ -1,17 +1,40 @@
+import java.util.*;
+import java.util.stream.Collectors;
 class Solution {
-    public int solution(int num, int k) {
-        int answer = 0;
-        int result = 0;
-        int total = 0;
-        while (num % 10 != 0){
-            result = num % 10;
-            num = num / 10;
-            total++;
-            if (result == k){
-                answer = total;
+    public static int[] solution(int N, int[] stages) {
+        Arrays.sort(stages);
+        List<Integer> list = Arrays.stream(stages).boxed().collect(Collectors.toList());
+        int[] c = new int [N];
+        int[] answer = new int[N];
+        Map<Integer,Float> result= new HashMap<>();
+        int a = stages.length;
+        for(int i = 0 ; i < N; i++){
+            c[i] = Collections.frequency(list,i+1);
+//            System.out.println(c.length);
+            if(a==0){
+                result.put((i+1), 0.0F);
+            }else{
+                result.put((i+1), ((float) c[i] / a));
             }
+            // System.out.println("실패율" + result.values());
+            a = a - c[i];
         }
-        return answer == 0 ? -1 : total - answer+1;
+        Map<Integer, Float> sortedByValueDesc = result.entrySet()
+                .stream()
+                .sorted(Map.Entry.<Integer, Float>comparingByValue().reversed())
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new
+                ));
+        int i =0;
+        for (int b : sortedByValueDesc.keySet()){
+            answer[i]= b;
+            // System.out.println(answer[i]);
+            i++;
+        }
+        return answer;
     }
 }
 
