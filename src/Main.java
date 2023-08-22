@@ -20,9 +20,6 @@ class Solution {
             }
             answer[i] = result;
         }
-//        System.out.println("binary1 = " + Arrays.toString(binary1));
-//        System.out.println("result = " + Arrays.toString(answer));
-//        System.out.println("binary2 = " + Arrays.toString(binary2));
         return answer;
     }
 }
