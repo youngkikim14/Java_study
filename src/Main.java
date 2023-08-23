@@ -1,25 +1,23 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 class Solution {
-    public static String[] solution(int n, int[] arr1, int[] arr2) {
-        // 1. 받은 정수를 2진수 변환하여 담을 변수 선언
-        String [] binary1 = new String[arr1.length];
-        String [] binary2 = new String[arr2.length];
-        String [] answer = new String[n];
-        for( int i = 0 ; i<n ;i ++){
-            String s = String.valueOf(n);
-            binary1[i]= String.format("%" + n + "s" ,Integer.toBinaryString(arr1[i])).replace(" ","0");
-            binary2[i]= String.format("%" + n + "s" ,Integer.toBinaryString(arr2[i])).replace(" ","0");
+    public int solution(String dartResult) {
+        int answer = 0;
+        String[] result = dartResult.split("(?=(\\d))");
+        List<String> result1 = new ArrayList<>();
+        for (int i = 0; i < result.length; i++) {
+            if (result[i].length() == 1){
+                result1.add(result[i] + result[i + 1]);
+                result[i+1] = "null";
+            } else if(result[i].equals("null")){
+                String oh = "happy!";
+            } else result1.add(result[i]);
         }
-        for( int i = 0 ; i<n ;i ++){
-            String result = "";
-            for(int j = 0 ; j < n; j ++){
-                if(binary1[i].charAt(j)=='1' || binary2[i].charAt(j)=='1'){
-                    result += "#";
-                }else {
-                    result += " ";
-                }
-            }
-            answer[i] = result;
-        }
+//        System.out.println(Arrays.toString(result1.toArray()));
+
+
         return answer;
     }
 }
@@ -27,7 +25,7 @@ class Solution {
     public class Main {
         public static void main(String[] args) {
             Solution solution = new Solution();
-            System.out.println(solution.solution());
+            System.out.println(solution.solution("1S*2T*3S"));
         }
 }
 
